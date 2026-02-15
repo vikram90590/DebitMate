@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #FFF4A3;
+  padding: 20px;
+}
+
+h1 {
+  color: #A7D8FF;
+  text-align: center;
+}
+
+h2 {
+  color: #FFC9A9;
+  margin-top: 30px;
+}
+
+.countdown {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px;
+  margin: 15px 0;
+  text-align: center;
+  background: #B8F2D0;
+  border-radius: 15px;
+}
+
+#debit-list {
+  margin-top: 10px;
+}
+
+.debit-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  background: #D6C1FF;
+}
+
+.debit-card:nth-child(2n) { background: #FFC9A9; }
+.debit-card:nth-child(3n) { background: #B8F2D0; }
+.debit-card:nth-child(4n) { background: #A7D8FF; }
+
+.debit-card.upcoming {
+  border: 2px solid #FF4C4C;
+}
+
+input, select, button {
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+button {
+  background: #FFB6B9;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+button:hover {
+  background: #FF8C94;
+}
