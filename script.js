@@ -1,4 +1,6 @@
-let debits = JSON.parse(localStorage.getItem('debits')) || [];
+let debits = [];
+
+const API_URL = "https://script.google.com/macros/s/AKfycbzXSi-mw6u1GuOUoemOShIY1LUsmFGMhXv8BGe4wm32hEGENjMN2sSWyQLcNgBsnkBj/exec";
 
 function getCategoryIcon(category) {
   switch(category) {
@@ -45,7 +47,19 @@ function renderDebits() {
   updateCountdown();
 }
 
-document.getElementById('add-debit-form').addEventListener('submit', function(e){
+// Load debits from Google Sheet
+async function loadDebits() {
+  try {
+    const response = await fetch(API_URL);
+    debits = await response.json();
+    renderDebits();
+  } catch(err) {
+    console.error("Error loading debits:", err);
+  }
+}
+
+// Add new debit to Google Sheet
+document.getElementById('add-debit-form').addEventListener('submit', async function(e){
   e.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -60,11 +74,18 @@ document.getElementById('add-debit-form').addEventListener('submit', function(e)
     else { alert("Category cannot be empty!"); return; }
   }
 
-  debits.push({name, amount, category, nextDate, reminderDays});
-  localStorage.setItem('debits', JSON.stringify(debits));
-  renderDebits();
-  document.getElementById('add-debit-form').reset();
+  try {
+    await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify({name, amount, category, nextDate, reminderDays})
+    });
+    loadDebits(); // Reload from sheet
+    document.getElementById('add-debit-form').reset();
+  } catch(err) {
+    console.error("Error saving debit:", err);
+  }
 });
 
-renderDebits();
+// Initial load
+loadDebits();
 setInterval(updateCountdown, 1000*60*60);
