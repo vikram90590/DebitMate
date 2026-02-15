@@ -1,17 +1,20 @@
 body {
   font-family: Arial, sans-serif;
-  background: #FFF4A3;
+  background: #F5F5F5;
   padding: 20px;
+  color: #2C3E50;
 }
 
 h1 {
-  color: #A7D8FF;
+  color: #2C3E50;
   text-align: center;
+  font-weight: bold;
 }
 
 h2 {
-  color: #FFC9A9;
+  color: #2C3E50;
   margin-top: 30px;
+  font-weight: 600;
 }
 
 .countdown {
@@ -20,7 +23,8 @@ h2 {
   padding: 15px;
   margin: 15px 0;
   text-align: center;
-  background: #B8F2D0;
+  background: #3498DB;
+  color: white;
   border-radius: 15px;
 }
 
@@ -29,35 +33,34 @@ h2 {
 }
 
 .debit-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 5px 0;
+  border: 1px solid #BDC3C7;
+  padding: 12px;
+  margin: 8px 0;
   border-radius: 10px;
-  background: #D6C1FF;
+  background: #ECF0F1;
+  color: #2C3E50;
 }
 
-.debit-card:nth-child(2n) { background: #FFC9A9; }
-.debit-card:nth-child(3n) { background: #B8F2D0; }
-.debit-card:nth-child(4n) { background: #A7D8FF; }
-
 .debit-card.upcoming {
-  border: 2px solid #FF4C4C;
+  border: 2px solid #E74C3C; /* Highlight urgent payments */
 }
 
 input, select, button {
-  padding: 8px;
+  padding: 10px;
   margin: 5px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  border-radius: 6px;
+  border: 1px solid #BDC3C7;
   width: 100%;
+  font-size: 16px;
 }
 
 button {
-  background: #FFB6B9;
+  background: #2980B9;
   border: none;
   cursor: pointer;
   font-weight: bold;
+  color: white;
 }
 button:hover {
-  background: #FF8C94;
+  background: #1F618D;
 }
