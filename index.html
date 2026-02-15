@@ -1,40 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DebitMate</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>DebitMate 💖</h1>
+<h2>Add New Debit</h2>
+<form id="add-debit-form">
+  <label>Name:</label>
+  <input type="text" id="name" required><br>
 
-  <div id="next-payment" class="countdown">
-    Next Payment in: -- days
-  </div>
+  <label>Amount ($):</label>
+  <input type="number" id="amount" required><br>
 
-  <h2>Upcoming Debits</h2>
-  <div id="debit-list"></div>
+  <label>Category:</label>
+  <select id="category" required>
+    <option value="" disabled selected>Select category</option>
+    <option value="Entertainment">Entertainment</option>
+    <option value="Car EMI">Car EMI</option>
+    <option value="Insurance">Insurance</option>
+    <option value="Phone Bill">Phone Bill</option>
+    <option value="Health">Health</option>
+    <option value="Maintenance">Maintenance</option>
+    <option value="Others">Others</option>
+  </select><br>
 
-  <h2>Add New Debit</h2>
-  <form id="add-debit-form">
-    <label>Name:</label>
-    <input type="text" id="name" required><br>
-    <label>Amount ($):</label>
-    <input type="number" id="amount" required><br>
-    <label>Category:</label>
-    <input type="text" id="category" required><br>
-    <label>Next Date:</label>
-    <input type="date" id="nextDate" required><br>
-    <label>Reminder Days Before:</label>
-    <select id="reminderDays">
-      <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="7">7</option>
-    </select><br><br>
-    <button type="submit">Add Debit</button>
-  </form>
+  <label>Next Date:</label>
+  <input type="date" id="nextDate" required><br>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <label>Reminder Days Before:</label>
+  <select id="reminderDays">
+    <option value="1">1 day</option>
+    <option value="3">3 days</option>
+    <option value="7">7 days</option>
+  </select><br><br>
+
+  <button type="submit">Add Debit</button>
+</form>
